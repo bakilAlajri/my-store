@@ -1,3 +1,6 @@
+
+from django import dj_database_url
+
 from pathlib import Path
 import os
 from dotenv import load_dotenv
@@ -11,11 +14,12 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-78^pjqm#262x9hs)3kx+y1lt)lrt3%yiqlq@@(^=0ohuw8z=!='
-
+SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
+DEBUG = os.environ.get("DEBUG") == "True"
 
 ALLOWED_HOSTS = ["*"]
-
+ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
 # ================================
 # 📧 إعدادات الإيميل (Gmail SMTP)
 # ================================
@@ -83,6 +87,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / "db.sqlite3",
     }
+}
+DATABASES = {
+    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
 }
 
 # ================================
