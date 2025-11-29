@@ -1,0 +1,169 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Tajawal", sans-serif;
+}
+
+/* Body */
+body {
+    background: #f5f5f5;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    background: #111;
+    padding: 15px 0;
+    color: #fff;
+}
+
+.nav-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-container h2 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #ffd700;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 350px;
+    background: url('../images/products/headphone-2.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 40px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.cta-button {
+    padding: 12px 25px;
+    background: #ff9800;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background: #e68900;
+}
+
+/* Products Grid */
+.products-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.price {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff9800;
+}
+
+/* Product detail */
+.detail-layout {
+    display: flex;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.detail-image img {
+    width: 350px;
+    border-radius: 10px;
+}
+
+.detail-info h1 {
+    font-size: 32px;
+}
+
+.detail-info .price {
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+/* Cart Page */
+.cart-item {
+    display: flex;
+    gap: 20px;
+    background: white;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+/* Checkout */
+.checkout form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkout input {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+/* Footer */
+.footer {
+    margin-top: 40px;
+    background: #111;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}

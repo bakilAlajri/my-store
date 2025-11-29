@@ -1,0 +1,81 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>الدفع</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="{% static 'pages/css/style.css' %}">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="/">🔵 MyStore</a>
+    </div>
+</nav>
+
+<div class="container py-5">
+    <h2 class="mb-4">💳 إتمام الدفع</h2>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    {% if cart_items %}
+        <div class="card p-3 mb-4">
+            <h5>ملخص الطلب</h5>
+            <ul class="list-group list-group-flush">
+                {% for item in cart_items %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ item.product.name }} × {{ item.quantity }}
+                    <span>{{ item.total }} ر.س</span>
+                </li>
+                {% endfor %}
+                <li class="list-group-item d-flex justify-content-between fw-bold">
+                    <span>الإجمالي</span>
+                    <span>{{ total_price }} ر.س</span>
+                </li>
+            </ul>
+        </div>
+
+        <form method="POST" class="card p-4 shadow-sm" style="max-width:600px;">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">الاسم الكامل</label>
+                <input type="text" name="full_name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">البريد الإلكتروني</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label">العنوان</label>
+                <input type="text" name="address" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">رقم الهاتف</label>
+                <input type="text" name="phone" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg w-100">✔ إرسال الطلب</button>
+        </form>
+
+    {% else %}
+        <div class="alert alert-warning">السلة فارغة.</div>
+    {% endif %}
+</div>
+<script src="{% static 'pages/js/main.js' %}"></script>
+<script src="{% static 'pages/js/cart.js' %}"></script>
+<script src="{% static 'pages/js/product-detail.js' %}"></script>
+<script src="{% static 'pages/js/navigation.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'pages/js/main.js' %}"></script>
+</body>
+</html>
